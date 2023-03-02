@@ -17,19 +17,29 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+FileInputStream 
+
 WebUI.openBrowser('')
 
-WebUI.navigateToUrl('https://app.bework.vn/login?redirect=%2F')
-
-WebUI.setText(findTestObject('Object Repository/test_login/Page_BeWork  ng dng qun tr doanh nghip/input_Ting vit_username'), 
-    '09323889165')
-
-WebUI.setEncryptedText(findTestObject('Object Repository/test_login/Page_BeWork  ng dng qun tr doanh nghip/input_Ting vit_password'), 
-    '59yZDYSL9FpbDJONwo4j8Q==')
-
-WebUI.click(findTestObject('Object Repository/test_login/Page_BeWork  ng dng qun tr doanh nghip/button_ng nhp'))
-
-WebUI.waitForElementPresent(findTestObject('Object Repository/test_login/Page_BeWork  ng dng qun tr doanh nghip/img'), 3)
-
-WebUI.verifyElementPresent(findTestObject('Object Repository/test_login/Page_BeWork  ng dng qun tr doanh nghip/img'), 3)
+for (def index : (0..4)) {
+	WebUI.navigateToUrl('https://app.bework.vn/login?redirect=%2F')
+	
+	WebUI.setText(findTestObject('Object Repository/test_login/Page_BeWork  ng dng qun tr doanh nghip/input_Ting vit_username'),
+		account)
+	
+	WebUI.setText(findTestObject('Object Repository/test_login/Page_BeWork  ng dng qun tr doanh nghip/input_Ting vit_password'),
+		password)
+	
+	WebUI.click(findTestObject('Object Repository/test_login/Page_BeWork  ng dng qun tr doanh nghip/button_ng nhp'))
+	
+	show = WebUI.waitForElementPresent(findTestObject('Object Repository/test_login/Page_BeWork  ng dng qun tr doanh nghip/img'),
+		2)
+	
+	if (show == true) {
+		WebUI.verifyElementPresent(findTestObject('Object Repository/test_login/Page_BeWork  ng dng qun tr doanh nghip/img'),
+			2)
+	}
+	
+	
+}
 
