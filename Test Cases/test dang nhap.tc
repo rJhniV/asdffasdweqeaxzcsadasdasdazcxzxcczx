@@ -5,4 +5,39 @@
    <tag></tag>
    <comment></comment>
    <testCaseGuid>6ff4e417-026f-4580-8b2b-bb7f3bd888e0</testCaseGuid>
+   <testDataLinks>
+      <combinationType>ONE</combinationType>
+      <id>aca2a4e2-0085-4567-a4cf-1e43ed523bfa</id>
+      <iterationEntity>
+         <iterationType>ALL</iterationType>
+         <value></value>
+      </iterationEntity>
+      <testDataId>Data Files/BeWorkTestData</testDataId>
+   </testDataLinks>
+   <variableLinks>
+      <testDataLinkId>aca2a4e2-0085-4567-a4cf-1e43ed523bfa</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>Tên đăng nhập</value>
+      <variableId>9aed0d12-baf8-4c0f-977e-7fee6d00300c</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId>aca2a4e2-0085-4567-a4cf-1e43ed523bfa</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>Mật khẩu </value>
+      <variableId>190a5e26-ec24-484b-b4d8-557350974700</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>9aed0d12-baf8-4c0f-977e-7fee6d00300c</id>
+      <masked>false</masked>
+      <name>account</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>190a5e26-ec24-484b-b4d8-557350974700</id>
+      <masked>false</masked>
+      <name>password</name>
+   </variable>
 </TestCaseEntity>
