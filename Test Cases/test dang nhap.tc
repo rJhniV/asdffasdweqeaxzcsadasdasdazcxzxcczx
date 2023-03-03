@@ -26,6 +26,12 @@
       <value>Mật khẩu </value>
       <variableId>190a5e26-ec24-484b-b4d8-557350974700</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId>aca2a4e2-0085-4567-a4cf-1e43ed523bfa</testDataLinkId>
+      <type>DATA_COLUMN_INDEX</type>
+      <value>1</value>
+      <variableId>ff3b0de1-c074-419c-ba6b-6838b3a73c59</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>''</defaultValue>
       <description></description>
@@ -39,5 +45,12 @@
       <id>190a5e26-ec24-484b-b4d8-557350974700</id>
       <masked>false</masked>
       <name>password</name>
+   </variable>
+   <variable>
+      <defaultValue>1</defaultValue>
+      <description></description>
+      <id>ff3b0de1-c074-419c-ba6b-6838b3a73c59</id>
+      <masked>false</masked>
+      <name>index</name>
    </variable>
 </TestCaseEntity>

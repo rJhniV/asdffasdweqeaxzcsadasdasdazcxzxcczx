@@ -17,29 +17,26 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-FileInputStream 
-
 WebUI.openBrowser('')
 
-for (def index : (0..4)) {
-	WebUI.navigateToUrl('https://app.bework.vn/login?redirect=%2F')
-	
-	WebUI.setText(findTestObject('Object Repository/test_login/Page_BeWork  ng dng qun tr doanh nghip/input_Ting vit_username'),
-		account)
-	
-	WebUI.setText(findTestObject('Object Repository/test_login/Page_BeWork  ng dng qun tr doanh nghip/input_Ting vit_password'),
-		password)
-	
-	WebUI.click(findTestObject('Object Repository/test_login/Page_BeWork  ng dng qun tr doanh nghip/button_ng nhp'))
-	
-	show = WebUI.waitForElementPresent(findTestObject('Object Repository/test_login/Page_BeWork  ng dng qun tr doanh nghip/img'),
-		2)
-	
-	if (show == true) {
-		WebUI.verifyElementPresent(findTestObject('Object Repository/test_login/Page_BeWork  ng dng qun tr doanh nghip/img'),
-			2)
-	}
-	
-	
+WebUI.navigateToUrl('https://app.bework.vn/login?redirect=%2F')
+
+WebUI.setText(findTestObject('Object Repository/test_login/Page_BeWork  ng dng qun tr doanh nghip/input_Ting vit_username'), 
+    account)
+
+WebUI.setText(findTestObject('Object Repository/test_login/Page_BeWork  ng dng qun tr doanh nghip/input_Ting vit_password'), 
+    password)
+
+WebUI.click(findTestObject('Object Repository/test_login/Page_BeWork  ng dng qun tr doanh nghip/button_ng nhp'))
+
+isShowing = WebUI.waitForElementPresent(findTestObject('Object Repository/test_login/Page_BeWork  ng dng qun tr doanh nghip/img'), 
+    2)
+
+if (isShowing == true) {
+    CustomKeywords.'customKeywordPackage.WriteToExcel.writeToExcel'('Đăng nhập thành công', 'F://TEST-CASE-BEWORK.xlsx', 
+        index.toInteger(), 6, 1)
+} else {
+    CustomKeywords.'customKeywordPackage.WriteToExcel.writeToExcel'('Đăng nhập không thành công', 'F://TEST-CASE-BEWORK.xlsx', 
+        index.toInteger(), 6, 1)
 }
 
