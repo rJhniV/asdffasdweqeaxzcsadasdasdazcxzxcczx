@@ -1,4 +1,6 @@
+package customKeywordPackage
 import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
@@ -48,16 +50,35 @@ import java.lang.String
 import org.apache.poi.ss.usermodel.Cell
 import org.apache.poi.ss.usermodel.Row
 
-class writeToExcel {
-	@Keyword
-	def writeToExcel(String input, File filename, int row, int cell){
+class WriteToExcel {
+	@Keyword(keywordObject = "Browser")
+	def writeToExcel(String input, String filenamePath, int row, int cell, int excelSheetAt){
+		File filename =new File(filenamePath)
 		FileInputStream file = new FileInputStream (filename)
 		XSSFWorkbook workbook = new XSSFWorkbook(file);
 		XSSFSheet sheet = workbook.getSheetAt(0);
-		Cell searchText = sheet.getRow(row).getCell(cell);
-		searchText.setCellValue(input);
+		if(sheet.getRow(row) == null) {
+			Row thisRow = sheet.createRow(row)
+			if(thisRow.getCell(cell) == null ) {
+				Cell searchText = thisRow.createCell(cell);
+				searchText.setCellValue(input);
+			} else {
+				Cell searchText =thisRow.getCell(cell);
+				searchText.setCellValue(input);
+			}
+		} else {
+			Row thisRow = sheet.getRow(row)
+			if(thisRow.getCell(cell) == null ) {
+				Cell searchText = thisRow.createCell(cell);
+				searchText.setCellValue(input);
+			} else {
+				Cell searchText =thisRow.getCell(cell);
+				searchText.setCellValue(input);
+			}
+		}
+		
 		file.close();
-		FileOutputStream outFile =new FileOutputStream(file);
+		FileOutputStream outFile =new FileOutputStream(filename);
 		workbook.write(outFile);
 		outFile.close();
 	}
